@@ -136,7 +136,8 @@ export function telaArma(app, id) {
             <button type="button" class="btn" data-acao="nivel" data-delta="1" aria-label="Aumentar nível">+</button>
           </div>
           <p class="dica">${prox ? `Próxima Militar no nível ${prox.nivel}` :
-            a.militares.some((m) => m.nivel == null) ? 'Níveis das Militares a validar — marque manualmente.' : 'Todas as Militares obtidas.'}</p>
+            a.militares.some((m) => m.nivel == null) ? 'Níveis das Militares a validar — marque manualmente.' : 'Todas as Militares obtidas.'}${
+            a.nivel_max ? ` · Nível máximo: ${a.nivel_max}` : ''}</p>
         </section>
         <div class="segmentado abas-det" role="tablist">
           <button type="button" role="tab" data-acao="aba" data-aba="trilha" aria-pressed="${aba === 'trilha'}">Trilha ${feitasT}/${trilha(a).length}</button>

@@ -26,14 +26,20 @@ await teste('Soma dos totais por categoria = 35', () =>
   igual(bruto.categorias.reduce((s, c) => s + c.total_fonte, 0), 35));
 await teste('Cada arma tem 14 camos na trilha', () =>
   ok(bruto.armas.every((a) => trilha(a).length === 14)));
-await teste('6 armas com categoria confirmada, 29 com categoria null/pendente', () => {
-  igual(bruto.armas.filter((a) => a.categoria_status === 'confirmado').map((a) => a.nome),
-    ['KG-7 Vulcan', 'Rezi 12', 'ISO Nightshade', 'FiNN LMG', 'MAR-9', 'SANG 9mm']);
-  ok(bruto.armas.filter((a) => a.categoria === null && a.categoria_status === 'pendente').length === 29);
+await teste('Planilha: 33 armas com categoria, só CSG-35 e Cronen Osprey sem', () => {
+  ok(bruto.armas.filter((a) => a.categoria && a.categoria_status === 'confirmado').length === 33);
+  igual(bruto.armas.filter((a) => a.categoria === null).map((a) => a.id).sort(), ['cronen-osprey', 'csg-35']);
+  for (const c of bruto.categorias) {
+    ok(bruto.armas.filter((a) => a.categoria === c.id).length <= c.total_fonte, `categoria ${c.id} passou do total`);
+  }
 });
-await teste('lancamento = null em todas (2 DLC ainda não identificadas)', () =>
+await teste('Planilha: nível máximo nas 33 armas (KG-7 = 74)', () => {
+  ok(bruto.armas.filter((a) => a.nivel_max > 0).length === 33);
+  igual(bruto.armas[0].nivel_max, 74);
+});
+await teste('lancamento = null em todas (DLC ainda não confirmada)', () =>
   ok(bruto.armas.every((a) => a.lancamento === null)));
-await teste('Armas pendentes não têm desafio inventado', () => {
+await teste('Armas fora da planilha não têm desafio inventado', () => {
   for (const a of bruto.armas.filter((x) => x.categoria === null)) {
     for (const c of [...a.especiais, a.completionist[1], a.completionist[2]]) {
       ok(c.desafio === '' && c.meta === null && c.status === 'pendente', `${a.id}/${c.id}`);
@@ -41,34 +47,44 @@ await teste('Armas pendentes não têm desafio inventado', () => {
     ok(a.militares.every((m) => m.nivel === null && m.nivel_status === 'pendente'), `${a.id} níveis`);
   }
 });
-await teste('Gold 15/100/8 em todas; pendente nas 29', () => {
+await teste('Gold 15/100/8 em todas; confirmado nas 33 da planilha', () => {
   for (const a of bruto.armas) {
     igual(a.completionist[0].meta, { MP: 15, DMZ: 100, WZ: 8 }, a.id);
     ok((a.categoria === null) === (a.completionist[0].status === 'pendente'), a.id);
   }
 });
+await teste('Planilha: Han 86 com metas MP/DMZ e WZ em branco', () => {
+  const han = bruto.armas.find((a) => a.id === 'han-86');
+  igual(han.especiais[0].desafio_modo, { MP: 'Kills com arma montada', DMZ: 'Kills enquanto montado', WZ: '' });
+  igual(han.especiais[0].meta, { MP: 20, DMZ: 75, WZ: null });
+  igual(han.completionist[2].meta, { MP: 25, DMZ: 50, WZ: null });
+});
+await teste('Planilha: DMZ casado pelo tipo de desafio, não pela coluna (M4)', () => {
+  const m4 = bruto.armas.find((a) => a.id === 'm4');
+  igual(m4.especiais.map((c) => [c.desafio_modo.MP, c.meta.DMZ]), [
+    ['Kills à queima-roupa', 75], ['Kills com arma montada', 75], ['Kills por trás', 100]]);
+});
 await teste('Níveis Militares da KG-7 conferem com o documento', () =>
   igual(bruto.armas[0].militares.map((m) => m.nivel), [13, 22, 31, 38, 47, 54, 61, 69]));
-await teste('Mastery: 3 MP + 3 WZ confirmadas, 3 DMZ pendentes', () => {
-  ok(bruto.mastery.MP.every((m) => m.status === 'confirmado') && bruto.mastery.MP.length === 3);
-  ok(bruto.mastery.WZ.every((m) => m.status === 'confirmado') && bruto.mastery.WZ.length === 3);
-  ok(bruto.mastery.DMZ.every((m) => m.status === 'pendente' && m.desafio === '') && bruto.mastery.DMZ.length === 3);
+await teste('Mastery: 3 MP + 3 WZ + 3 DMZ confirmadas', () => {
+  for (const modo of ['MP', 'WZ', 'DMZ']) {
+    ok(bruto.mastery[modo].length === 3 && bruto.mastery[modo].every((m) => m.status === 'confirmado' && m.desafio), modo);
+  }
 });
-await teste('Selo "a validar": Platinum da FiNN e Snakeskin da SANG', () => {
-  const finn = bruto.armas.find((a) => a.id === 'finn-lmg');
+await teste('Selo "a validar" onde MP e DMZ não batem (Snakeskin, Spidersilk)', () => {
   const sang = bruto.armas.find((a) => a.id === 'sang-9mm');
-  ok(aValidar(finn.completionist[1]) && finn.completionist[1].desafio_modo.WZ === '');
-  ok(aValidar(sang.especiais[1]) && sang.especiais[1].desafio_modo.WZ === '');
+  ok(aValidar(sang.especiais[1]), 'Snakeskin');
+  ok(aValidar(bruto.armas[0].especiais[1]), 'Spidersilk');
   ok(!aValidar(bruto.armas[0].especiais[0]), 'Treeline não deveria estar a validar');
 });
 
 // ---------------- edições ----------------
 await teste('Editar categoria aplica nos dados sem alterar o arquivo original', () => {
   const e = estadoVazio();
-  registrarEdicao(e, bruto, 'arma:han-86', { categoria: 'SMG', categoria_status: 'confirmado' });
+  registrarEdicao(e, bruto, 'arma:csg-35', { categoria: 'SMG', categoria_status: 'confirmado' });
   const { dados, conflitos } = aplicarEdicoes(bruto, e);
-  igual(dados.armas.find((a) => a.id === 'han-86').categoria, 'SMG');
-  igual(bruto.armas.find((a) => a.id === 'han-86').categoria, null, 'original mudou');
+  igual(dados.armas.find((a) => a.id === 'csg-35').categoria, 'SMG');
+  igual(bruto.armas.find((a) => a.id === 'csg-35').categoria, null, 'original mudou');
   igual(conflitos, []);
 });
 await teste('Renomear camo não perde progresso (ligado por id)', () => {
@@ -81,28 +97,28 @@ await teste('Renomear camo não perde progresso (ligado por id)', () => {
 });
 await teste('Voltar ao valor do arquivo remove a edição', () => {
   const e = estadoVazio();
-  registrarEdicao(e, bruto, 'arma:pila', { categoria: 'AR' });
-  registrarEdicao(e, bruto, 'arma:pila', { categoria: null });
+  registrarEdicao(e, bruto, 'arma:csg-35', { categoria: 'AR' });
+  registrarEdicao(e, bruto, 'arma:csg-35', { categoria: null });
   igual(e.edicoes, {});
 });
 await teste('JSON novo muda campo editado → sua edição vale + conflito listado', () => {
   const e = estadoVazio();
-  registrarEdicao(e, bruto, 'arma:han-86', { categoria: 'SMG' });
+  registrarEdicao(e, bruto, 'arma:csg-35', { categoria: 'SMG' });
   const novo = structuredClone(bruto);
-  novo.armas.find((a) => a.id === 'han-86').categoria = 'AR';
+  novo.armas.find((a) => a.id === 'csg-35').categoria = 'AR';
   const r = aplicarEdicoes(novo, e);
-  igual(r.dados.armas.find((a) => a.id === 'han-86').categoria, 'SMG');
-  igual(r.conflitos, [{ chave: 'arma:han-86', campo: 'categoria', seu: 'SMG', novo: 'AR', antigo: null }]);
-  manterMinhaEdicao(e, novo, 'arma:han-86', 'categoria');
+  igual(r.dados.armas.find((a) => a.id === 'csg-35').categoria, 'SMG');
+  igual(r.conflitos, [{ chave: 'arma:csg-35', campo: 'categoria', seu: 'SMG', novo: 'AR', antigo: null }]);
+  manterMinhaEdicao(e, novo, 'arma:csg-35', 'categoria');
   igual(aplicarEdicoes(novo, e).conflitos, [], 'manter deveria silenciar');
-  aceitarDadoNovo(e, 'arma:han-86', 'categoria');
-  igual(aplicarEdicoes(novo, e).dados.armas.find((a) => a.id === 'han-86').categoria, 'AR');
+  aceitarDadoNovo(e, 'arma:csg-35', 'categoria');
+  igual(aplicarEdicoes(novo, e).dados.armas.find((a) => a.id === 'csg-35').categoria, 'AR');
 });
 await teste('JSON novo que confirma o mesmo valor da sua edição não gera conflito', () => {
   const e = estadoVazio();
-  registrarEdicao(e, bruto, 'arma:han-86', { categoria: 'SMG' });
+  registrarEdicao(e, bruto, 'arma:csg-35', { categoria: 'SMG' });
   const novo = structuredClone(bruto);
-  novo.armas.find((a) => a.id === 'han-86').categoria = 'SMG';
+  novo.armas.find((a) => a.id === 'csg-35').categoria = 'SMG';
   igual(aplicarEdicoes(novo, e).conflitos, []);
 });
 await teste('Arma adicionada pelo app aparece; se o JSON passar a ter, usa a do JSON', () => {
@@ -204,8 +220,8 @@ await teste('Progresso corrompido é normalizado sem quebrar', () => {
     igual(nomes({ busca: '  .50 ' }).includes('50-gs'), true);
   });
   await teste('Filtro por tipo (vários chips) + "Sem categoria"', () => {
-    igual(nomes({ categorias: ['Sniper', 'Shotgun'] }).sort(), ['kg-7-vulcan', 'rezi-12']);
-    igual(nomes({ categorias: [SEM_CATEGORIA] }).length, 29);
+    igual(nomes({ categorias: ['Sniper', 'Shotgun'] }).sort(), ['astaroth-57', 'kg-7-vulcan', 'rezi-12', 'signal-50', 'warlord']);
+    igual(nomes({ categorias: [SEM_CATEGORIA] }).sort(), ['cronen-osprey', 'csg-35']);
   });
   await teste('Filtro DLC: null fica em "A definir"', () => {
     igual(nomes({ dlc: 'lancamento' }), []);
@@ -217,7 +233,7 @@ await teste('Progresso corrompido é normalizado sem quebrar', () => {
     igual(nomes({ progresso: 'completa' }), ['kg-7-vulcan']);
     igual(nomes({ progresso: 'andamento' }).sort(), ['iso-nightshade', 'rezi-12']);
     igual(nomes({ progresso: 'nao_iniciada' }).length, 32);
-    igual(nomes({ progresso: 'sem-platinum', categorias: ['Shotgun', 'Sniper'] }), ['rezi-12']);
+    igual(nomes({ progresso: 'sem-platinum', categorias: ['Shotgun', 'Sniper'] }), ['astaroth-57', 'rezi-12', 'signal-50', 'warlord']);
     igual(nomes({ progresso: 'sem-gold' }).length, 33);
   });
   await teste('Filtros combinados (busca + tipo + progresso)', () => {
@@ -231,7 +247,7 @@ await teste('Progresso corrompido é normalizado sem quebrar', () => {
     igual(porNome[0], 'sang-9mm');
     igual(porNome[1], '50-gs');
     const porCat = nomes({ ordem: 'categoria' });
-    igual(porCat.slice(0, 2), ['sang-9mm', 'iso-nightshade']); // fav, depois SMG (AR não tem confirmada)
+    igual(porCat.slice(0, 2), ['sang-9mm', 'axion']); // fav, depois a 1ª AR por nome
     igual(porCat.at(-1) !== undefined && bruto.armas.find((a) => a.id === porCat.at(-1)).categoria, null);
   });
 }
@@ -242,11 +258,9 @@ await teste('Progresso corrompido é normalizado sem quebrar', () => {
   const kg7 = arma('kg-7-vulcan');
   const ok_ = (e, id, k) => !!e.armas[id]?.camos[k]?.ok;
   const marcarTrilha = (e, id, ate) => marcar(bruto, e, arma(id), ate, 'x');
-  // dados com categorias completas p/ testar Platinum de verdade
-  const comCats = structuredClone(bruto);
-  comCats.armas.find((a) => a.id === 'pila').categoria = 'Sniper';
-  comCats.armas.find((a) => a.id === 'oden').categoria = 'Sniper';
-  const A = (id) => comCats.armas.find((a) => a.id === id);
+  // Sniper está completa na planilha: KG-7, Astaroth .57, Signal 50
+  const comCats = bruto;
+  const A = arma;
 
   await teste('Marcar Especial 2 marca as 8 Militares + Especial 1 (cascata)', () => {
     const e = estadoVazio();
@@ -269,13 +283,13 @@ await teste('Progresso corrompido é normalizado sem quebrar', () => {
     marcar(comCats, e, A('kg-7-vulcan'), 'gold');
     const s = situacao(comCats, e, A('kg-7-vulcan'), 'platinum');
     ok(s.bloqueada);
-    igual(s.motivos, ['Faltam Gold em: PILA, Oden']);
+    igual(s.motivos, ['Faltam Gold em: Astaroth .57, Signal 50']);
     const r = marcar(comCats, e, A('kg-7-vulcan'), 'platinum');
     ok(!r.ok && !ok_(e, 'kg-7-vulcan', 'platinum'), 'não deveria marcar');
   });
   await teste('Platinum: libera quando todas da categoria têm Gold', () => {
     const e = estadoVazio();
-    for (const id of ['pila', 'oden']) marcar(comCats, e, A(id), 'gold');
+    for (const id of ['astaroth-57', 'signal-50']) marcar(comCats, e, A(id), 'gold');
     // o Gold da própria arma vem pela cascata
     ok(!situacao(comCats, e, A('kg-7-vulcan'), 'platinum').bloqueada);
     ok(marcar(comCats, e, A('kg-7-vulcan'), 'harmonic-break').ok);
@@ -283,8 +297,10 @@ await teste('Progresso corrompido é normalizado sem quebrar', () => {
   });
   await teste('Platinum: categoria incompleta e arma sem categoria', () => {
     const e = estadoVazio();
-    igual(situacao(bruto, e, kg7, 'platinum').motivos, ['Faltam 2 armas Sniper sem categoria definida']);
-    igual(situacao(bruto, e, arma('pila'), 'platinum').motivos, ['Defina a categoria desta arma para calcular o Platinum.']);
+    // AR: 8 na planilha, 9 na fonte → falta 1 sem categoria
+    ok(situacao(bruto, e, arma('han-86'), 'platinum').motivos.includes('Falta 1 arma Assault Rifle sem categoria definida'));
+    ok(!situacao(bruto, e, kg7, 'platinum').motivos.some((m) => m.includes('sem categoria')));
+    igual(situacao(bruto, e, arma('csg-35'), 'platinum').motivos, ['Defina a categoria desta arma para calcular o Platinum.']);
   });
   await teste('Harmonic Break segue a trava do Platinum', () => {
     const e = estadoVazio();
@@ -345,24 +361,23 @@ await teste('Progresso corrompido é normalizado sem quebrar', () => {
 // ---------------- painel ----------------
 {
   const d = structuredClone(bruto);
-  d.armas.find((a) => a.id === 'pila').categoria = 'Sniper';
   const A = (id) => d.armas.find((a) => a.id === id);
   const e = estadoVazio();
   marcar(d, e, A('kg-7-vulcan'), 'gold');
-  marcar(d, e, A('pila'), 'gold');
+  marcar(d, e, A('astaroth-57'), 'gold');
   marcar(d, e, A('rezi-12'), 'brushstroke'); // Rezi: 10/14, sem Gold
   marcar(d, e, A('mar-9'), 'militar-2');
 
   await teste('Painel: contadores Gold/Platinum/HB sobre 35', () => {
     const s = estatisticas(d, e);
     igual([s.total, s.gold, s.platinum, s.harmonic, s.trilhasCompletas], [35, 2, 0, 0, 0]);
-    igual(s.semCategoria, 28);
+    igual(s.semCategoria, 2);
   });
   await teste('Painel: "Sniper: 2/3 com Gold → falta 1 para Platinum"', () => {
-    const sn = estatisticas(d, e).categorias.find((c) => c.id === 'Sniper');
-    igual(sn.texto, '2/3 com Gold → falta 1 para Platinum (1 sem categoria definida)');
-    const sh = estatisticas(d, e).categorias.find((c) => c.id === 'Shotgun');
-    igual(sh.texto, '0/2 com Gold → falta 2 para Platinum (1 sem categoria definida)');
+    const cats = estatisticas(d, e).categorias;
+    igual(cats.find((c) => c.id === 'Sniper').texto, '2/3 com Gold → falta 1 para Platinum');
+    igual(cats.find((c) => c.id === 'Shotgun').texto, '0/2 com Gold → falta 2 para Platinum');
+    igual(cats.find((c) => c.id === 'AR').texto, '0/9 com Gold → falta 9 para Platinum (1 sem categoria definida)');
   });
   await teste('Painel: Mastery por modo e Divergence', () => {
     const s = estatisticas(d, e);
@@ -375,8 +390,8 @@ await teste('Progresso corrompido é normalizado sem quebrar', () => {
   await teste('Próximos passos: mais perto primeiro', () => {
     const p = proximosPassos(d, e);
     igual(p.map((x) => [x.arma.id, x.texto]), [
-      ['kg-7-vulcan', 'Platinum: Falta 1 arma Sniper sem categoria definida'],
-      ['pila', 'Platinum: Falta 1 arma Sniper sem categoria definida'],
+      ['astaroth-57', 'Platinum: Faltam Gold em: Signal 50'],
+      ['kg-7-vulcan', 'Platinum: Faltam Gold em: Signal 50'],
       ['rezi-12', 'Faltam 2 camos para o Gold'],
       ['mar-9', 'Faltam 10 camos para o Gold'],
     ]);
@@ -416,10 +431,11 @@ await teste('Editar meta e desafio por modo', () => {
 });
 await teste('Editar categoria libera o cálculo do Platinum', () => {
   const e = estadoVazio();
-  for (const id of ['pila', 'oden']) registrarEdicao(e, bruto, `arma:${id}`, { categoria: 'Sniper', categoria_status: 'confirmado' });
+  registrarEdicao(e, bruto, 'arma:csg-35', { categoria: 'AR', categoria_status: 'confirmado' });
   const d = aplicarEdicoes(bruto, e).dados;
-  const kg = d.armas.find((a) => a.id === 'kg-7-vulcan');
-  igual(situacao(d, e, kg, 'platinum').motivos, ['Faltam Gold em: PILA, Oden']);
+  const han = d.armas.find((a) => a.id === 'han-86');
+  const m = situacao(d, e, han, 'platinum').motivos;
+  ok(m.length === 1 && m[0].startsWith('Faltam Gold em:') && m[0].includes('CSG-35'), m.join(' | '));
 });
 await teste('Zerar progresso mantém edições, armas novas e modo livre', () => {
   const e = estadoVazio();

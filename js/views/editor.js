@@ -100,6 +100,7 @@ export function telaEditor(app, rota) {
           <label class="campo"><span>Categoria</span><select ${attrs(chave, 'categoria', 'categoria')}>${opcoesCategoria(app.dados, a.categoria)}</select></label>
           ${campoConfirmado('Categoria confirmada', chave, 'categoria_status', a.categoria_status)}
           <label class="campo"><span>Lançamento ou DLC</span><select ${attrs(chave, 'lancamento', 'lancamento')}>${opcoesLancamento(a.lancamento)}</select></label>
+          ${campoNumero('Nível máximo da arma', chave, 'nivel_max', a.nivel_max)}
           ${btnRestaurar(chave)}
         </section>
         <h2>Militares</h2>${a.militares.map((c) => blocoCamo(a.id, c, 'militar')).join('')}

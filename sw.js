@@ -5,7 +5,7 @@
 // O data/mw4.json é buscado na rede quando houver internet (e guardado), então trocar só os dados
 // não exige mudar VERSAO.
 
-const VERSAO = 'v1';
+const VERSAO = 'v2';
 const CACHE = `camo-mw4-${VERSAO}`;
 const DADOS = 'data/mw4.json';
 
