@@ -1,0 +1,1027 @@
+{
+  "versao_dados": "0.1",
+  "data_levantamento": "2026-11-14",
+  "modos": ["MP", "DMZ", "WZ"],
+  "categorias": [
+    { "id": "AR", "nome": "Assault Rifle", "total_fonte": 9 },
+    { "id": "SMG", "nome": "SMG", "total_fonte": 6 },
+    { "id": "Shotgun", "nome": "Shotgun", "total_fonte": 2 },
+    { "id": "LMG", "nome": "LMG", "total_fonte": 3 },
+    { "id": "Marksman", "nome": "Marksman Rifle", "total_fonte": 3 },
+    { "id": "Sniper", "nome": "Sniper", "total_fonte": 3 },
+    { "id": "Pistol", "nome": "Pistol", "total_fonte": 4 },
+    { "id": "Launcher", "nome": "Launcher", "total_fonte": 4 },
+    { "id": "Melee", "nome": "Melee", "total_fonte": 1 }
+  ],
+  "regras": {
+    "trilha_compartilhada": true,
+    "trilha_compartilhada_status": "pendente",
+    "gold_requer": ["militares", "especiais"],
+    "platinum_requer": "gold_em_toda_categoria",
+    "harmonic_requer": "platinum",
+    "divergence_hb_minimo": 33,
+    "mastery_hb_minimo": { "MP": 33, "WZ": 33, "DMZ": null },
+    "mastery_hb_minimo_status": { "MP": "confirmado", "WZ": "confirmado", "DMZ": "pendente" },
+    "mastery_sequencial": true
+  },
+  "armas": [
+    {
+      "id": "kg-7-vulcan",
+      "nome": "KG-7 Vulcan",
+      "categoria": "Sniper",
+      "categoria_status": "confirmado",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": 13, "nivel_status": "confirmado" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": 22, "nivel_status": "confirmado" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": 31, "nivel_status": "confirmado" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": 38, "nivel_status": "confirmado" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": 47, "nivel_status": "confirmado" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": 54, "nivel_status": "confirmado" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": 61, "nivel_status": "confirmado" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": 69, "nivel_status": "confirmado" }
+      ],
+      "especiais": [
+        { "id": "treeline", "nome": "Treeline", "desafio": "Hipfire kills", "meta": { "MP": 10, "DMZ": 25, "WZ": 5 }, "status": "confirmado" },
+        { "id": "spidersilk", "nome": "Spidersilk", "desafio": "Headshot kills", "meta": { "MP": 20, "DMZ": 75, "WZ": 10 }, "status": "confirmado" },
+        { "id": "tension", "nome": "Tension", "desafio": "Kills sem tomar dano", "meta": { "MP": 20, "DMZ": 30, "WZ": 10 }, "status": "confirmado" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "confirmado" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "Kills deitado (prone)", "meta": { "MP": 75, "DMZ": 150, "WZ": 35 }, "status": "confirmado" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "One-shot kills", "meta": { "MP": 75, "DMZ": 150, "WZ": 35 }, "status": "confirmado" }
+      ]
+    },
+    {
+      "id": "rezi-12",
+      "nome": "Rezi 12",
+      "categoria": "Shotgun",
+      "categoria_status": "confirmado",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": 11, "nivel_status": "confirmado" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": 18, "nivel_status": "confirmado" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": 26, "nivel_status": "confirmado" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": 30, "nivel_status": "confirmado" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": 38, "nivel_status": "confirmado" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": 42, "nivel_status": "confirmado" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": 47, "nivel_status": "confirmado" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": 54, "nivel_status": "confirmado" }
+      ],
+      "especiais": [
+        { "id": "struck-oil", "nome": "Struck Oil", "desafio": "Kills à queima-roupa", "meta": { "MP": 20, "DMZ": 75, "WZ": 10 }, "status": "confirmado" },
+        { "id": "brushstroke", "nome": "Brushstroke", "desafio": "Longshot kills", "meta": { "MP": 10, "DMZ": 50, "WZ": 5 }, "status": "confirmado" },
+        { "id": "white-pine", "nome": "White Pine", "desafio": "Kills pulando", "meta": { "MP": 40, "DMZ": 100, "WZ": 20 }, "status": "confirmado" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "confirmado" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "Hipfire kills", "meta": { "MP": 50, "DMZ": 125, "WZ": 25 }, "status": "confirmado" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "Kills sem recarregar", "meta": { "MP": 25, "DMZ": 50, "WZ": 15 }, "status": "confirmado" }
+      ]
+    },
+    {
+      "id": "iso-nightshade",
+      "nome": "ISO Nightshade",
+      "categoria": "SMG",
+      "categoria_status": "confirmado",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": 12, "nivel_status": "confirmado" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": 19, "nivel_status": "confirmado" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": 25, "nivel_status": "confirmado" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": 31, "nivel_status": "confirmado" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": 38, "nivel_status": "confirmado" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": 44, "nivel_status": "confirmado" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": 50, "nivel_status": "confirmado" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": 57, "nivel_status": "confirmado" }
+      ],
+      "especiais": [
+        {
+          "id": "brown",
+          "nome": "Brown",
+          "desafio": "Varia por modo",
+          "desafio_modo": { "MP": "Kills sem morrer, 15x", "DMZ": "Kills sem tomar dano", "WZ": "Longshot kills" },
+          "meta": { "MP": 15, "DMZ": 50, "WZ": 10 },
+          "status": "confirmado"
+        },
+        { "id": "asphalt", "nome": "Asphalt", "desafio": "Kills mirando (ADS)", "meta": { "MP": 50, "DMZ": 125, "WZ": 25 }, "status": "confirmado" },
+        {
+          "id": "black-topo",
+          "nome": "Black Topo",
+          "desafio": "Varia por modo",
+          "desafio_modo": { "MP": "Double kills", "DMZ": "Double kills", "WZ": "2 kills em 10 s, 5x" },
+          "meta": { "MP": 10, "DMZ": 30, "WZ": 5 },
+          "status": "confirmado"
+        }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "confirmado" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "Kills pelas costas", "meta": { "MP": 25, "DMZ": 75, "WZ": 15 }, "status": "confirmado" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "Hipfire kills", "meta": { "MP": 50, "DMZ": 100, "WZ": 25 }, "status": "confirmado" }
+      ]
+    },
+    {
+      "id": "finn-lmg",
+      "nome": "FiNN LMG",
+      "categoria": "LMG",
+      "categoria_status": "confirmado",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": 12, "nivel_status": "confirmado" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": 18, "nivel_status": "confirmado" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": 24, "nivel_status": "confirmado" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": 31, "nivel_status": "confirmado" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": 37, "nivel_status": "confirmado" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": 42, "nivel_status": "confirmado" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": 48, "nivel_status": "confirmado" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": 53, "nivel_status": "confirmado" }
+      ],
+      "especiais": [
+        { "id": "desert-tactics", "nome": "Desert Tactics", "desafio": "Kills à queima-roupa", "meta": { "MP": 20, "DMZ": 75, "WZ": 10 }, "status": "confirmado" },
+        { "id": "green-tiger", "nome": "Green Tiger", "desafio": "Kills sem recarregar", "meta": { "MP": 10, "DMZ": 30, "WZ": 5 }, "status": "confirmado" },
+        { "id": "thunderhead", "nome": "Thunderhead", "desafio": "Longshot kills", "meta": { "MP": 30, "DMZ": 100, "WZ": 15 }, "status": "confirmado" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "confirmado" },
+        {
+          "id": "platinum",
+          "nome": "Platinum",
+          "desafio": "Varia por modo",
+          "desafio_modo": { "MP": "Kills sem morrer, 15x", "DMZ": "Kills sem tomar dano", "WZ": "" },
+          "meta": { "MP": 15, "DMZ": 50, "WZ": 10 },
+          "status": "pendente"
+        },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "Kills sem soltar o gatilho", "meta": { "MP": 25, "DMZ": 75, "WZ": 15 }, "status": "confirmado" }
+      ]
+    },
+    {
+      "id": "mar-9",
+      "nome": "MAR-9",
+      "categoria": "Marksman",
+      "categoria_status": "confirmado",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": 10, "nivel_status": "confirmado" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": 19, "nivel_status": "confirmado" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": 29, "nivel_status": "confirmado" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": 38, "nivel_status": "confirmado" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": 45, "nivel_status": "confirmado" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": 52, "nivel_status": "confirmado" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": 58, "nivel_status": "confirmado" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": 69, "nivel_status": "confirmado" }
+      ],
+      "especiais": [
+        { "id": "mangrove", "nome": "Mangrove", "desafio": "Kills apoiado (mounted)", "meta": { "MP": 20, "DMZ": 75, "WZ": 10 }, "status": "confirmado" },
+        { "id": "fungal-grid", "nome": "Fungal Grid", "desafio": "Kills agachado", "meta": { "MP": 25, "DMZ": 75, "WZ": 15 }, "status": "confirmado" },
+        { "id": "white", "nome": "White", "desafio": "Longshot kills", "meta": { "MP": 30, "DMZ": 100, "WZ": 15 }, "status": "confirmado" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "confirmado" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "Kills deitado (prone)", "meta": { "MP": 75, "DMZ": 150, "WZ": 35 }, "status": "confirmado" },
+        {
+          "id": "harmonic-break",
+          "nome": "Harmonic Break",
+          "desafio": "Varia por modo",
+          "desafio_modo": { "MP": "One-shot kills", "DMZ": "One-shot kills", "WZ": "Kills sem tomar dano do alvo" },
+          "meta": { "MP": 75, "DMZ": 150, "WZ": 45 },
+          "status": "confirmado"
+        }
+      ]
+    },
+    {
+      "id": "sang-9mm",
+      "nome": "SANG 9mm",
+      "categoria": "Pistol",
+      "categoria_status": "confirmado",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": 9, "nivel_status": "confirmado" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": 13, "nivel_status": "confirmado" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": 17, "nivel_status": "confirmado" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": 21, "nivel_status": "confirmado" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": 25, "nivel_status": "confirmado" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": 28, "nivel_status": "confirmado" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": 31, "nivel_status": "confirmado" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": 35, "nivel_status": "confirmado" }
+      ],
+      "especiais": [
+        { "id": "autumn", "nome": "Autumn", "desafio": "Kills mirando (ADS)", "meta": { "MP": 25, "DMZ": 75, "WZ": 15 }, "status": "confirmado" },
+        {
+          "id": "snakeskin",
+          "nome": "Snakeskin",
+          "desafio": "Varia por modo",
+          "desafio_modo": { "MP": "Kills sem morrer, 5x", "DMZ": "Kills sem tomar dano, 15x", "WZ": "" },
+          "meta": { "MP": 5, "DMZ": 15, "WZ": 3 },
+          "status": "pendente"
+        },
+        { "id": "space-time", "nome": "Space Time", "desafio": "Kills com akimbo", "meta": { "MP": 50, "DMZ": 125, "WZ": 25 }, "status": "confirmado" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "confirmado" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "Kills pelas costas", "meta": { "MP": 20, "DMZ": 75, "WZ": 10 }, "status": "confirmado" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "Hipfire kills", "meta": { "MP": 40, "DMZ": 100, "WZ": 20 }, "status": "confirmado" }
+      ]
+    },
+    {
+      "id": "pila",
+      "nome": "PILA",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "fss-carbon-edge-1095",
+      "nome": "FSS Carbon Edge 1095",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "han-86",
+      "nome": "Han 86",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "vel-46",
+      "nome": "VEL 46",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "krait-p68",
+      "nome": "Krait P68",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "type-73",
+      "nome": "Type 73",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "oris-8-6",
+      "nome": "Oris 8.6",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "m4",
+      "nome": "M4",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "wz-55-striga",
+      "nome": "WZ.55 Striga",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "hyeon-burst",
+      "nome": "Hyeon Burst",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "rpg-8",
+      "nome": "RPG-8",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "astaroth-57",
+      "nome": "Astaroth .57",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "patriot-xmr",
+      "nome": "Patriot XMR",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "ppsh-41",
+      "nome": "PPSh-41",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "warlord",
+      "nome": "Warlord",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "kastov-762",
+      "nome": "Kastov 762",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "mosin-nagant",
+      "nome": "Mosin-Nagant",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "oden",
+      "nome": "Oden",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "50-gs",
+      "nome": ".50 GS",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "jokr",
+      "nome": "JOKR",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "apoc-338",
+      "nome": "APOC-338",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "x-58-nyx",
+      "nome": "X-58 Nyx",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "mojave-357",
+      "nome": "Mojave .357",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "signal-50",
+      "nome": "Signal 50",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "axion",
+      "nome": "Axion",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "pm-40-anvil",
+      "nome": "PM-40 Anvil",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "cronen-squall",
+      "nome": "Cronen Squall",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "csg-35",
+      "nome": "CSG-35",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    },
+    {
+      "id": "cronen-osprey",
+      "nome": "Cronen Osprey",
+      "categoria": null,
+      "categoria_status": "pendente",
+      "lancamento": null,
+      "militares": [
+        { "id": "militar-1", "nome": "Militar 1", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-2", "nome": "Militar 2", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-3", "nome": "Militar 3", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-4", "nome": "Militar 4", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-5", "nome": "Militar 5", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-6", "nome": "Militar 6", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-7", "nome": "Militar 7", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" },
+        { "id": "militar-8", "nome": "Militar 8", "nome_status": "pendente", "nivel": null, "nivel_status": "pendente" }
+      ],
+      "especiais": [
+        { "id": "especial-1", "nome": "Especial 1", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-2", "nome": "Especial 2", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "especial-3", "nome": "Especial 3", "nome_status": "pendente", "desafio": "", "meta": null, "status": "pendente" }
+      ],
+      "completionist": [
+        { "id": "gold", "nome": "Gold", "desafio": "Kills em uma única partida", "meta": { "MP": 15, "DMZ": 100, "WZ": 8 }, "status": "pendente" },
+        { "id": "platinum", "nome": "Platinum", "desafio": "", "meta": null, "status": "pendente" },
+        { "id": "harmonic-break", "nome": "Harmonic Break", "desafio": "", "meta": null, "status": "pendente" }
+      ]
+    }
+  ],
+  "divergence": { "id": "divergence", "nome": "Divergence", "desafio": "", "status": "pendente" },
+  "mastery": {
+    "MP": [
+      { "id": "mercurial-drift", "nome": "Mercurial Drift", "desafio": "Get 10 Kills in a match 250 times", "status": "confirmado" },
+      { "id": "polyatomic-reforged", "nome": "Polyatomic Reforged", "desafio": "Get 3 Kills without Taking Damage 300 times", "status": "confirmado" },
+      { "id": "orion-reforged", "nome": "Orion Reforged", "desafio": "Get 5 Kills without dying 500 times", "status": "confirmado" }
+    ],
+    "WZ": [
+      { "id": "parallax", "nome": "Parallax", "desafio": "Get 5 Kills in a match 300 times", "status": "confirmado" },
+      { "id": "damascus-reforged", "nome": "Damascus Reforged", "desafio": "Get 2 Kills without plating 200 times", "status": "confirmado" },
+      { "id": "empyros", "nome": "Empyros", "desafio": "Place in the top 5 with at least 6 Kills 75 times", "status": "confirmado" }
+    ],
+    "DMZ": [
+      { "id": "chiral", "nome": "Chiral", "desafio": "", "status": "pendente" },
+      { "id": "ripple-tide", "nome": "Ripple Tide", "desafio": "", "status": "pendente" },
+      { "id": "helio", "nome": "Helio", "desafio": "", "status": "pendente" }
+    ]
+  }
+}

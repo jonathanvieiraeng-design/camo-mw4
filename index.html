@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f1216">
+  <meta name="description" content="Rastreador pessoal e offline de camuflagens (MP, DMZ e Warzone).">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Camo MW4">
+  <title>Camo MW4</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <main id="tela" aria-live="polite"><p class="carregando">Carregando…</p></main>
+  <nav class="abas" aria-label="Navegação">
+    <a href="#/armas" data-aba="armas"><span aria-hidden="true">▦</span>Armas</a>
+    <a href="#/painel" data-aba="painel"><span aria-hidden="true">◔</span>Painel</a>
+    <a href="#/config" data-aba="config"><span aria-hidden="true">⚙</span>Config</a>
+  </nav>
+  <div class="toast atualizacao" role="status" hidden>
+    <span>Nova versão disponível</span>
+    <button type="button" class="link-btn" data-atualizar>Atualizar</button>
+  </div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
