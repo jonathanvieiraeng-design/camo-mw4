@@ -17,65 +17,78 @@ function igual(a, b, msg) {
   if (ja !== jb) throw new Error(`${msg || 'diferente'}: ${ja} ≠ ${jb}`);
 }
 
-const bruto = await carregarDados();
+const real = await carregarDados();
 
-// ---------------- dados ----------------
-await teste('Arquivo de dados íntegro (validarDados)', () => igual(validarDados(bruto), []));
-await teste('35 armas cadastradas', () => igual(bruto.armas.length, 35));
+// Cenário fixo para os testes de regras/filtros/edições: imita o arquivo v0.2
+// (CSG-35 e Cronen Osprey sem categoria, PILA sem níveis, HB sem a regra das 33 Platinum),
+// para os testes não dependerem de cada atualização dos dados do jogo.
+const bruto = structuredClone(real);
+for (const id of ['csg-35', 'cronen-osprey']) {
+  const a = bruto.armas.find((x) => x.id === id);
+  a.categoria = null; a.categoria_status = 'pendente';
+}
+bruto.armas.find((x) => x.id === 'pila').militares.forEach((m) => { m.nivel = null; m.nivel_status = 'pendente'; });
+bruto.regras.harmonic_platinum_minimo = null;
+
+// ---------------- dados (arquivo real) ----------------
+await teste('Arquivo de dados íntegro (validarDados)', () => igual(validarDados(real), []));
+await teste('35 armas cadastradas', () => igual(real.armas.length, 35));
 await teste('Soma dos totais por categoria = 35', () =>
-  igual(bruto.categorias.reduce((s, c) => s + c.total_fonte, 0), 35));
+  igual(real.categorias.reduce((s, c) => s + c.total_fonte, 0), 35));
 await teste('Cada arma tem 14 camos na trilha', () =>
-  ok(bruto.armas.every((a) => trilha(a).length === 14)));
-await teste('Planilha: 33 armas com categoria, só CSG-35 e Cronen Osprey sem', () => {
-  ok(bruto.armas.filter((a) => a.categoria && a.categoria_status === 'confirmado').length === 33);
-  igual(bruto.armas.filter((a) => a.categoria === null).map((a) => a.id).sort(), ['cronen-osprey', 'csg-35']);
-  for (const c of bruto.categorias) {
-    ok(bruto.armas.filter((a) => a.categoria === c.id).length <= c.total_fonte, `categoria ${c.id} passou do total`);
-  }
+  ok(real.armas.every((a) => trilha(a).length === 14)));
+await teste('Todas as 35 armas com categoria e totais por categoria batendo', () => {
+  ok(real.armas.every((a) => a.categoria && a.categoria_status === 'confirmado'));
+  for (const c of real.categorias) igual(real.armas.filter((a) => a.categoria === c.id).length, c.total_fonte, c.id);
 });
-await teste('Planilha: nível máximo nas 33 armas (KG-7 = 74)', () => {
-  ok(bruto.armas.filter((a) => a.nivel_max > 0).length === 33);
-  igual(bruto.armas[0].nivel_max, 74);
+await teste('Nível máximo nas 33 armas da planilha (KG-7 = 74)', () => {
+  ok(real.armas.filter((a) => a.nivel_max > 0).length === 33);
+  igual(real.armas[0].nivel_max, 74);
 });
 await teste('lancamento = null em todas (DLC ainda não confirmada)', () =>
-  ok(bruto.armas.every((a) => a.lancamento === null)));
-await teste('Armas fora da planilha não têm desafio inventado', () => {
-  for (const a of bruto.armas.filter((x) => x.categoria === null)) {
-    for (const c of [...a.especiais, a.completionist[1], a.completionist[2]]) {
-      ok(c.desafio === '' && c.meta === null && c.status === 'pendente', `${a.id}/${c.id}`);
+  ok(real.armas.every((a) => a.lancamento === null)));
+await teste('Militares: 8 níveis confirmados e crescentes em todas as armas', () => {
+  for (const a of real.armas) {
+    const n = a.militares.map((m) => m.nivel);
+    ok(n.every((x) => Number.isInteger(x)) && n.every((x, i) => i === 0 || x > n[i - 1]), a.id);
+  }
+});
+await teste('Warzone: toda Especial e Completionist tem desafio e meta de WZ', () => {
+  for (const a of real.armas) {
+    for (const c of [...a.especiais, ...a.completionist]) {
+      ok(Number.isInteger(c.meta?.WZ) && (c.desafio_modo?.WZ || (c.desafio && c.desafio !== 'Varia por modo')), `${a.id}/${c.id}`);
+      ok(c.status === 'confirmado', `${a.id}/${c.id} status`);
     }
-    ok(a.militares.every((m) => m.nivel === null && m.nivel_status === 'pendente'), `${a.id} níveis`);
   }
 });
-await teste('Gold 15/100/8 em todas; confirmado nas 33 da planilha', () => {
-  for (const a of bruto.armas) {
-    igual(a.completionist[0].meta, { MP: 15, DMZ: 100, WZ: 8 }, a.id);
-    ok((a.categoria === null) === (a.completionist[0].status === 'pendente'), a.id);
+await teste('Gold: 15 kills (MP) e 8 (WZ) numa partida em todas', () => {
+  for (const a of real.armas) {
+    const g = a.completionist[0].meta;
+    ok(g.MP === 15 && g.WZ === 8 && [50, 100].includes(g.DMZ), a.id);
   }
 });
-await teste('Planilha: Han 86 com metas MP/DMZ e WZ em branco', () => {
-  const han = bruto.armas.find((a) => a.id === 'han-86');
-  igual(han.especiais[0].desafio_modo, { MP: 'Kills com arma montada', DMZ: 'Kills enquanto montado', WZ: '' });
-  igual(han.especiais[0].meta, { MP: 20, DMZ: 75, WZ: null });
-  igual(han.completionist[2].meta, { MP: 25, DMZ: 50, WZ: null });
+await teste('Han 86: Especial 1 = Smoke com metas MP/DMZ/WZ', () => {
+  const han = real.armas.find((a) => a.id === 'han-86');
+  igual([han.especiais[0].id, han.especiais[0].nome, han.especiais[0].desafio], ['especial-1', 'Smoke', 'Kills com a arma apoiada']);
+  igual(han.especiais[0].meta, { MP: 20, DMZ: 75, WZ: 10 });
+  igual(han.completionist[2].meta, { MP: 25, DMZ: 50, WZ: 15 });
 });
-await teste('Planilha: DMZ casado pelo tipo de desafio, não pela coluna (M4)', () => {
-  const m4 = bruto.armas.find((a) => a.id === 'm4');
-  igual(m4.especiais.map((c) => [c.desafio_modo.MP, c.meta.DMZ]), [
-    ['Kills à queima-roupa', 75], ['Kills com arma montada', 75], ['Kills por trás', 100]]);
+await teste('Especiais casadas com o id antigo (M4: queima-roupa, apoiada, pelas costas)', () => {
+  const m4 = real.armas.find((a) => a.id === 'm4');
+  igual(m4.especiais.map((c) => [c.id, c.desafio_modo?.MP ?? c.desafio, c.meta.DMZ]), [
+    ['especial-1', 'Kills à queima-roupa', 75], ['especial-2', 'Kills com a arma apoiada', 75], ['especial-3', 'Kills pelas costas', 100]]);
 });
 await teste('Níveis Militares da KG-7 conferem com o documento', () =>
-  igual(bruto.armas[0].militares.map((m) => m.nivel), [13, 22, 31, 38, 47, 54, 61, 69]));
+  igual(real.armas[0].militares.map((m) => m.nivel), [13, 22, 31, 38, 47, 54, 61, 69]));
 await teste('Mastery: 3 MP + 3 WZ + 3 DMZ confirmadas', () => {
   for (const modo of ['MP', 'WZ', 'DMZ']) {
-    ok(bruto.mastery[modo].length === 3 && bruto.mastery[modo].every((m) => m.status === 'confirmado' && m.desafio), modo);
+    ok(real.mastery[modo].length === 3 && real.mastery[modo].every((m) => m.status === 'confirmado' && m.desafio), modo);
   }
 });
-await teste('Selo "a validar" onde MP e DMZ não batem (Snakeskin, Spidersilk)', () => {
-  const sang = bruto.armas.find((a) => a.id === 'sang-9mm');
-  ok(aValidar(sang.especiais[1]), 'Snakeskin');
-  ok(aValidar(bruto.armas[0].especiais[1]), 'Spidersilk');
-  ok(!aValidar(bruto.armas[0].especiais[0]), 'Treeline não deveria estar a validar');
+await teste('Selo "a validar": só itens pendentes', () => {
+  ok(aValidar({ status: 'pendente' }) && aValidar({ nome_status: 'pendente' }));
+  ok(!aValidar(real.armas[0].especiais[0]), 'Treeline não deveria estar a validar');
+  ok(real.armas.every((a) => [...a.especiais, ...a.completionist].every((c) => !aValidar(c))), 'nenhuma Especial/Completionist pendente');
 });
 
 // ---------------- edições ----------------
@@ -305,6 +318,18 @@ await teste('Progresso corrompido é normalizado sem quebrar', () => {
   await teste('Harmonic Break segue a trava do Platinum', () => {
     const e = estadoVazio();
     ok(situacao(bruto, e, kg7, 'harmonic-break').bloqueada);
+  });
+  await teste('Harmonic Break: precisa de Platinum em 33 armas (regra do arquivo real)', () => {
+    const d = structuredClone(real);
+    d.regras.platinum_requer = null; // isola a regra das 33 Platinum
+    const e = estadoVazio();
+    const s = situacao(d, e, d.armas[0], 'harmonic-break');
+    ok(s.bloqueada);
+    igual(s.motivos, ['Faltam Platinum em 32 outras armas (hoje: 0/33)']);
+    d.armas.slice(1, 32).forEach((a) => marcar(d, e, a, 'platinum'));
+    ok(situacao(d, e, d.armas[0], 'harmonic-break').bloqueada, 'com 31 outras ainda trava');
+    marcar(d, e, d.armas[32], 'platinum');
+    ok(!situacao(d, e, d.armas[0], 'harmonic-break').bloqueada, 'com 32 outras + a própria deveria liberar');
   });
   await teste('Mastery MP: precisa de Harmonic Break em 33 armas', () => {
     const d = structuredClone(comCats);

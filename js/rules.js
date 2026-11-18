@@ -58,8 +58,20 @@ export function faltasPlatinum(dados, estado, arma) {
   return m;
 }
 
+/** Quantas armas têm Platinum (opcionalmente ignorando uma). */
+export function contarPlatinum(dados, estado, excetoId = null) {
+  return dados.armas.filter((a) => a.id !== excetoId && feita(estado, a.id, 'platinum')).length;
+}
+
 function faltasHarmonic(dados, estado, arma) {
-  return dados.regras?.harmonic_requer === 'platinum' ? faltasPlatinum(dados, estado, arma) : [];
+  const m = dados.regras?.harmonic_requer === 'platinum' ? faltasPlatinum(dados, estado, arma) : [];
+  const min = dados.regras?.harmonic_platinum_minimo;
+  if (min != null) {
+    // esta arma ganha o Platinum pela cascata, então conta como 1
+    const total = contarPlatinum(dados, estado, arma.id) + 1;
+    if (total < min) m.push(`Faltam Platinum em ${min - total} outras armas (hoje: ${contarPlatinum(dados, estado)}/${min})`);
+  }
+  return m;
 }
 
 /**

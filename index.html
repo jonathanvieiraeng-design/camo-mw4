@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0f1216">
+  <meta name="theme-color" content="#0b0b0d">
   <meta name="description" content="Rastreador pessoal e offline de camuflagens (MP, DMZ e Warzone).">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
@@ -13,14 +13,17 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap">
   <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
   <main id="tela" aria-live="polite"><p class="carregando">Carregando…</p></main>
   <nav class="abas" aria-label="Navegação">
-    <a href="#/armas" data-aba="armas"><span aria-hidden="true">▦</span>Armas</a>
-    <a href="#/painel" data-aba="painel"><span aria-hidden="true">◔</span>Painel</a>
-    <a href="#/config" data-aba="config"><span aria-hidden="true">⚙</span>Config</a>
+    <a href="#/armas" data-aba="armas"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Armas</a>
+    <a href="#/painel" data-aba="painel"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 109 9h-9z"/><path d="M15 3.5A9 9 0 0120.5 9H15z"/></svg>Painel</a>
+    <a href="#/config" data-aba="config"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>Config</a>
   </nav>
   <div class="toast atualizacao" role="status" hidden>
     <span>Nova versão disponível</span>

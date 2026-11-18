@@ -28,10 +28,30 @@ js/data.js              carrega mw4.json e aplica as edições feitas no app
 js/rules.js             regras de progressão (travas, cascata, nível)
 js/progresso.js         resumo por arma, filtros e ordenação da lista
 js/stats.js             números do Painel
+js/visual.js            modo ativo (MP/WZ/DMZ), barra do topo, amostras de camo, anéis, ícones
 js/views/*.js           telas: lista, arma, painel, config, editor
 tests/                  testes automáticos (abra /tests/ no navegador)
 tools/servidor.ps1      servidor local para testar no PC (Windows)
+tools/atualizar-dados.ps1  puxa os desafios (MP, DMZ e Warzone) do CODMunity para o mw4.json
 ```
+
+## Modo ativo (MP / WZ / DMZ)
+
+Os botões **MP · WZ · DMZ** no topo trocam o modo do app inteiro: título, cor de destaque, o texto do
+desafio e a meta mostrados nos cards e no detalhe da arma, e a Mastery exibida. O contador de cada camo
+usa o modo ativo (dá para trocar por camo nos chips MP/WZ/DMZ). Toque numa amostra de camo na lista
+para marcar/desmarcar direto (com **Desfazer**).
+
+## Atualizar os desafios automaticamente
+
+```
+powershell -ExecutionPolicy Bypass -File tools/atualizar-dados.ps1
+```
+
+Baixa os desafios publicados pelo CODMunity e atualiza `data/mw4.json`: níveis das Militares, nomes,
+desafios (traduzidos) e metas de MP/DMZ/WZ das Especiais e do Completionist. **Os ids não mudam**, então o
+progresso continua ligado. O texto original em inglês fica em `desafio_en`. Armas que a fonte ainda marca
+como `TBD` não entram. Revise o resultado e o log antes de publicar.
 
 ## Atualizar os dados do jogo
 

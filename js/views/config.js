@@ -2,6 +2,7 @@
 import { baixarBackup, lerBackup, semProgresso } from '../store.js';
 import { aceitarDadoNovo, manterMinhaEdicao, descreverChave, progressoOrfao } from '../data.js';
 import { esc } from '../ui.js';
+import { barraTopo } from '../visual.js';
 
 const mostrar = (v) => (v === null || v === undefined || v === '' ? '—' : typeof v === 'object' ? JSON.stringify(v) : String(v));
 
@@ -13,8 +14,8 @@ export function telaConfig(app) {
     const orfas = progressoOrfao(app.estado, app.dados);
     const livre = !!app.estado.config.modo_livre;
 
-    el.innerHTML = `<div class="pagina">
-      <h1>Configurações</h1>
+    el.innerHTML = `${barraTopo()}<div class="pagina">
+      <h1 class="pag-tit">Configu<em>rações</em></h1>
 
       <label class="interruptor">
         <span><b>Modo livre</b><br><span class="dica">Desliga as travas de Platinum, Harmonic Break, Mastery e Divergence. Use se a regra do jogo for diferente da cadastrada.</span></span>

@@ -7,6 +7,19 @@ import { telaPainel } from './views/painel.js';
 import { telaConfig } from './views/config.js';
 import { telaEditor } from './views/editor.js';
 import { esc } from './ui.js';
+import { modoAtivo, definirModoAtivo } from './visual.js';
+
+// Modo de jogo ativo (MP / WZ / DMZ): troca em qualquer tela e redesenha a tela atual.
+document.documentElement.dataset.modo = modoAtivo();
+document.addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-modo-global]');
+  if (!b || b.dataset.modoGlobal === modoAtivo()) return;
+  if (location.hash.startsWith('#/armas') || !location.hash) {
+    try { localStorage.setItem('camo-mw4:lista-scroll', JSON.stringify(scrollY)); } catch { /* ignora */ }
+  }
+  definirModoAtivo(b.dataset.modoGlobal);
+  navegar(true);
+});
 
 /** Contexto compartilhado pelas telas. */
 export const app = {
@@ -44,10 +57,12 @@ const rotas = [
 ];
 
 let limparTela = null;
-function navegar() {
+function navegar(mesmaTela = false) {
   // elemento novo a cada tela: os ouvintes de eventos da tela anterior vão embora junto
   const antiga = document.getElementById('tela');
   const tela = antiga.cloneNode(false);
+  tela.classList.toggle('entrando', mesmaTela !== true);
+  // ao trocar de modo na lista, guarda a rolagem atual (a tela salva ao sair)
   limparTela?.();
   limparTela = null;
   const hash = location.hash || '#/armas';
@@ -69,7 +84,7 @@ async function iniciar() {
       carregarDados(), app.store.carregar(), pedirPersistencia(),
     ]);
     app.recalcular();
-    addEventListener('hashchange', navegar);
+    addEventListener('hashchange', () => navegar());
     navegar();
   } catch (e) {
     document.getElementById('tela').innerHTML =
